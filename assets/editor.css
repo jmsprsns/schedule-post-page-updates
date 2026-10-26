@@ -1,0 +1,231 @@
+/**
+ * Schedule Post and Page Updates: post editor and Posts screen styles.
+ */
+
+/* An update is never published: its Publish button would only save it.
+ * Its own status, publish date and slug are never used either, so those
+ * rows go too (the schedule takes their place). */
+.sppu-is-update .editor-post-publish-button,
+.sppu-is-update .editor-post-publish-button__button,
+.sppu-is-update .editor-post-publish-panel__toggle,
+.sppu-is-update .editor-post-panel__row:has(.editor-post-status),
+.sppu-is-update .editor-post-panel__row:has(.editor-post-schedule__panel-dropdown),
+.sppu-is-update .editor-post-panel__row:has(.editor-post-url__panel-dropdown),
+.sppu-is-update .edit-post-post-schedule,
+.sppu-is-update .edit-post-post-visibility,
+.sppu-is-update #publishing-action,
+.sppu-is-update #misc-publishing-actions .misc-pub-post-status,
+.sppu-is-update #misc-publishing-actions .misc-pub-visibility,
+.sppu-is-update #misc-publishing-actions .misc-pub-curtime {
+	display: none !important;
+}
+
+/* Block editor panel ---------------------------------------------------- */
+
+.sppu-status-info.components-panel__row {
+	display: block;
+}
+
+.sppu-status-info-inner {
+	padding: 12px;
+	border: 1px solid #e0e0e0;
+	border-radius: 4px;
+}
+
+.sppu-status-info-title {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	margin: 0 0 12px;
+	color: #1e1e1e;
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.sppu-status-info-title svg {
+	flex: none;
+	width: 18px;
+	height: 18px;
+	color: var(--wp-admin-theme-color, #3858e9);
+}
+
+/* The panel icon is a stroked Lucide icon; the editor fills panel icons by default. */
+.sppu-panel .components-panel__body-title svg:not(.components-panel__arrow),
+.sppu-panel .components-panel__body-toggle svg:not(.components-panel__arrow) {
+	fill: none;
+	color: var(--wp-admin-theme-color, #3858e9);
+}
+
+.sppu-panel .sppu-panel-body > * {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.sppu-panel .sppu-panel-body > * + * {
+	margin-top: 12px;
+}
+
+.sppu-for {
+	color: #1e1e1e;
+}
+
+.sppu-for a {
+	font-weight: 600;
+}
+
+.sppu-when {
+	display: grid;
+	gap: 2px;
+	padding: 10px 12px;
+	border: 1px solid #e0e0e0;
+	border-radius: 4px;
+	background: #f6f7f7;
+}
+
+.sppu-when.is-scheduled {
+	border-color: rgba(0, 163, 42, .35);
+	background: #edfaef;
+}
+
+.sppu-when-label {
+	color: #757575;
+	font-size: 11px;
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: .02em;
+}
+
+.sppu-when-relative {
+	color: #50575e;
+	font-size: 12px;
+}
+
+.sppu-pick {
+	display: grid;
+	gap: 4px;
+}
+
+.sppu-pick-dropdown,
+.sppu-pick-toggle {
+	width: 100%;
+}
+
+.sppu-pick-toggle.components-button {
+	justify-content: center;
+	height: auto;
+	min-height: 36px;
+	white-space: normal;
+}
+
+.sppu-timezone {
+	color: #757575;
+	font-size: 12px;
+}
+
+.sppu-picker {
+	padding: 8px;
+}
+
+.sppu-pick-popover .components-popover__content {
+	min-width: 280px;
+}
+
+.sppu-actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+}
+
+.sppu-actions .sppu-schedule-button {
+	flex: 1 1 auto;
+	justify-content: center;
+}
+
+.sppu-apply .components-button.is-link {
+	text-decoration: none;
+}
+
+.sppu-help {
+	color: #757575;
+	font-size: 12px;
+	line-height: 1.5;
+}
+
+.sppu-inline-notice.components-notice {
+	margin: 12px 0 0;
+}
+
+.sppu-update-list {
+	margin: 0;
+}
+
+.sppu-update-list li {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0 0 6px;
+}
+
+.sppu-update-list li::before {
+	content: "";
+	flex: none;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #00a32a;
+}
+
+.sppu-update-list li.is-draft::before {
+	background: #c3c4c7;
+}
+
+/* Classic editor ---------------------------------------------------------- */
+
+.misc-pub-section.sppu-classic {
+	display: flex;
+	align-items: flex-start;
+	gap: 6px;
+}
+
+.sppu-classic > svg {
+	flex: none;
+	margin-top: 1px;
+	color: #8c8f94;
+}
+
+.sppu-classic-when {
+	display: grid;
+	gap: 4px;
+	width: 100%;
+}
+
+.sppu-classic-when input[type="datetime-local"] {
+	width: 100%;
+	max-width: 240px;
+}
+
+.sppu-classic-when .description {
+	font-size: 12px;
+}
+
+.sppu-classic-error {
+	color: #b32d2e;
+}
+
+.sppu-classic-error > svg {
+	color: #d63638;
+}
+
+.sppu-classic-warning > svg {
+	color: #dba617;
+}
+
+.sppu-classic-action {
+	float: right;
+	margin-left: 8px;
+}
+
+#major-publishing-actions .sppu-classic-action + #delete-action {
+	line-height: 2.30769231;
+}
